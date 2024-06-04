@@ -25,8 +25,8 @@ function App() {
       img.onload = () => {
         canvas.current.width = width;
         canvas.current.height = height;
-        setImageHeight(img.height);
-        setImageWidth(img.width);
+        setImageHeight(img.height > height ? height : img.height);
+        setImageWidth(img.width > width ? width : img.width);
         ctx.drawImage(img, 0, 0, width, height);
       };
     } else {
