@@ -25,9 +25,11 @@ function App() {
       img.onload = () => {
         canvas.current.width = width;
         canvas.current.height = height;
-        setImageHeight(img.height > height ? height : img.height);
-        setImageWidth(img.width > width ? width : img.width);
-        ctx.drawImage(img, 0, 0, width, height);
+        const imageHeight = img.height > height ? height : img.height;
+        const imageWidth = img.width > width ? width : img.width;
+        setImageHeight(imageHeight);
+        setImageWidth(imageWidth);
+        ctx.drawImage(img, 0, 0, imageWidth, imageHeight);
       };
     }
   }, [width, height, file]);
@@ -87,11 +89,11 @@ function App() {
             <h2>Canvas Properties</h2>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>Width</label>
-              <input type="number" id="width" className="input" value={width} onChange={e => setWidth(e.target.value)} readOnly={file}/>
+              <input type="number" id="width" className="input" value={width} onChange={e => setWidth(e.target.value)} disabled={file}/>
             </div>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>Height</label>
-              <input type="number" id="height" value={height} className="input"  onChange={e => setHeight(e.target.value)} readOnly={file}/>
+              <input type="number" id="height" value={height} className="input"  onChange={e => setHeight(e.target.value)} disabled={file}/>
             </div>
             <button style={{ marginTop: '10px' }} onClick={changeCanvasSize} disabled={file}>Change Size</button>
           </div>
@@ -111,19 +113,19 @@ function App() {
             <h2>Image Properties</h2>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>X</label>
-              <input type="number" id="width" className="input" value={imageX} onChange={e => setImageX(e.target.value)} readOnly={!file}/>
+              <input type="number" id="width" className="input" value={imageX} onChange={e => setImageX(e.target.value)} disabled={!file}/>
             </div>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>Y</label>
-              <input type="number" id="height" value={imageY} className="input"  onChange={e => setImageY(e.target.value)} readOnly={!file}/>
+              <input type="number" id="height" value={imageY} className="input"  onChange={e => setImageY(e.target.value)} disabled={!file}/>
             </div>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>Width</label>
-              <input type="number" id="width" className="input" value={imageWidth} onChange={e => setImageWidth(e.target.value)} readOnly={!file}/>
+              <input type="number" id="width" className="input" value={imageWidth} onChange={e => setImageWidth(e.target.value)} disabled={!file}/>
             </div>
             <div style={{ marginBottom: '10px' }}>
               <label htmlFor="width" style={{ marginRight: '10px' }}>Height</label>
-              <input type="number" id="height" value={imageHeight} className="input" onChange={e => setImageHeight(e.target.value)} readOnly={!file}/>
+              <input type="number" id="height" value={imageHeight} className="input" onChange={e => setImageHeight(e.target.value)} disabled={!file}/>
             </div>
             <button style={{ marginTop: '10px' }} onClick={changeImageProperties} disabled={!file}>Change Size</button>
           </div>
