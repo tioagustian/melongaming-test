@@ -1,0 +1,92 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0px 20px;
+    background-image: linear-gradient(to bottom right, #ffffff 0%, #ffffff 100%);
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.5) 0%, rgba(241, 241, 241, 0.5) 100%);
+    min-height: 500px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border-color: #f3e7e9;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 0 0 8px #ffffff4e;
+    position: relative;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.canvasEl {
+    border-color: #666666;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #fffffffd;
+    transition: all 0.5s;
+}
+
+.canvasOpts, .imgOpts {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    border: #666666 1px solid;
+    border-radius: 8px;
+    padding: 5px;
+    width: 100px;
+}
+
+.input[type="file"] {
+    width: 200px;
+}
+
+button {
+    border: #666666 1px solid;
+    border-radius: 8px;
+    padding: 8px;
+    width: 100px;
+    margin-top: 10px;
+    background-color: rgb(61, 125, 255);
+    color: white;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error-container {
+    background-color: rgb(255, 169, 169);
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px auto;
+    max-width: 300px;
+    text-align: center;
+    font-size: 10pt;
+    height: 20px;
+    font-style: bold;
+    font-weight: 600;
+}
+
+@media (min-width: 900px) {
+    .container { grid-template-columns: repeat(3, 1fr); }
+  }
