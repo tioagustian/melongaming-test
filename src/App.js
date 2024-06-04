@@ -30,8 +30,6 @@ function App() {
         ctx.drawImage(img, 0, 0, width, height);
       };
     } else {
-      canvas.current.width = width;
-      canvas.current.height = height;
       setImageHeight(0);
       setImageWidth(0);
       setImageY(0);
