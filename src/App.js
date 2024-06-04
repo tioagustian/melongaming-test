@@ -37,7 +37,7 @@ function App() {
       setImageY(0);
       setImageX(0);
     }
-  }, [file]);
+  }, [width, height, file]);
 
   useEffect(() => {
     if (width < 100 || height < 100) {
