@@ -29,11 +29,6 @@ function App() {
         setImageWidth(img.width > width ? width : img.width);
         ctx.drawImage(img, 0, 0, width, height);
       };
-    } else {
-      setImageHeight(0);
-      setImageWidth(0);
-      setImageY(0);
-      setImageX(0);
     }
   }, [width, height, file]);
 
@@ -72,6 +67,18 @@ function App() {
     
   };
 
+  const clearCanvas = () => {
+    setFile(null);
+    const ctx = canvas.current.getContext('2d');
+    ctx.clearRect(0, 0, canvas.current.width, canvas.current.height);
+    canvas.current.width = width;
+    canvas.current.height = height;
+    setImageHeight(0);
+    setImageWidth(0);
+    setImageY(0);
+    setImageX(0);
+  };
+
   return (
     <div className="App">
       <div className="container">
@@ -93,7 +100,7 @@ function App() {
           {errorMessage && <div className="error-container">{errorMessage}</div>}
           <div style={{ textAlign: 'center', padding: '20px' }}>
             <input type="file" className="input" onChange={e => setFile(e.target.files[0])}/>
-            <button style={{ marginTop: '10px', marginLeft: '10px' }} disabled={!file} onClick={e => setFile(null)}>Clear</button>
+            <button style={{ marginTop: '10px', marginLeft: '10px' }} disabled={!file} onClick={e => clearCanvas()}>Clear</button>
           </div>
           <div className="canvas">
             <canvas ref={canvas} height={360} width={640} className="canvasEl"></canvas>
